@@ -1,34 +1,80 @@
+/* The game styling. Alpha-Alpha listed. */
+
 /* Tags */
 
-/* The game styling. */
-body {
+button {
+	border: none;
+	background: none;
+	color: steelblue;
+	font-weight: 700;
+	height: 100%;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: all .33s;
+}
+
+button:hover {
 	color: white;
-	text-align: center;
+	background: steelblue;
+}
+
+body {
 	background-color: #232323;
+	margin: 0;
+	font-family: 'Oswald', sans-serif;
+	font-size:  200%;
+	font-weight: 400;
 }
 
-.square {
-	background: purple;
-	float: left;
-	margin: 1.66%;
-	padding-bottom: 30%;
-	width: 30%;
-}
-
-#container, #board {
+h1 {
+	background: steelblue;
+	color: white;
+	font-weight: normal;
+	line-height:  1.1;
+	margin: 0;
+	padding:  20px 0;
 	text-align: center;
-	margin: 0 auto;
+	text-transform: uppercase;
+}
+
+/* IDs */
+
+#color_name {
+	font-size: 200%;
+}
+
+#container {
+	margin: 20px auto;
 	max-width: 600px;
+	text-align: center;
+}
+
+#message {
+	display: inline-block;
+	width: 20%;
 }
 
 #stripe {
 	background-color: white;
+	color: black;
 	height: 30px;
 	text-align: center;
-	color: black;
 }
 
+/* Classes */
+
 .selected {
-	background: blue;
+	background: steelblue;
 	color: white;
+}
+
+.square {
+	border-radius: 10%;
+	float: left;
+	margin: 1.66%;
+	padding-bottom: 30%;
+	transition: background .66s;
+	-webkit-transition: background 0.66s;
+	-moz-transition: background 0.66s;
+	width: 30%;
 }

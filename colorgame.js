@@ -25,7 +25,7 @@ function new_game() {
 	color_name.textContent = target_color;
 	assign_listeners();
 	is_winner = false;
-	h1.style.backgroundColor = "#232323";
+	h1.style.backgroundColor = "steelblue";
 	message.textContent = "Game started.";
 }
 //------------------------------------------------------------------------
