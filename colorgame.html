@@ -1,0 +1,36 @@
+<!-- The game structure. -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<!-- Bootstrap CDN, Font Awesome, Local Style -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="colorgame.css">
+		<title>The Great RGB Color Game</title>
+	</head>
+	<body>
+		<div id="container">
+			<h1>The Great<br><span id="color_name">RGB</span><br>Color Game</h1>
+			<div id="stripe">
+				<button type="button" id="reset_btn">New Colors</button>
+				<span id="message">Game started.</span>
+				<button id="easy_btn">Easy</button>
+				<button id="hard_btn" class="selected">Hard</button>
+			</div>
+		</div>
+		<!-- Game Squares in a Formatted Container -->
+		<div id="board">
+			<div class="square"></div>
+			<div class="square"></div>
+			<div class="square"></div>
+			<div class="square"></div>
+			<div class="square"></div>
+			<div class="square"></div>
+		</div>
+		<!-- jquery, Bootstrap JS, local JS -->
+		<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="colorgame.js" type="text/javascript" charset="utf-8" async defer></script>
+	</body>
+</html>
