@@ -15,34 +15,8 @@ var target_color;
 var difficulty = 6;
 
 // Pick a random colors.
-new_game(6);
-//------------------------------------------------------------------------
-function new_game() {
-	reset_btn.textContent = "New Game";
-	square_visibility(difficulty);
-	colors = generate_colors(difficulty);
-	target_color = pick_target_color();
-	color_name.textContent = target_color;
-	assign_listeners();
-	is_winner = false;
-	h1.style.backgroundColor = "steelblue";
-	message.textContent = "Game started.";
-}
-//------------------------------------------------------------------------
-function easy_mode() {
-	difficulty = 3;
-	new_game(difficulty);
-	easy_btn.classList.add("selected");
-	hard_btn.classList.remove("selected");
-}
-//------------------------------------------------------------------------
-function hard_mode() {
-	difficulty = 6;
-	new_game(difficulty);
-	hard_btn.classList.add("selected");
-	easy_btn.classList.remove("selected");
-}
-//------------------------------------------------------------------------
+new_game();
+//-EVENT-SETUP------------------------------------------------------------
 function assign_listeners() {
 	reset_btn.addEventListener("click", new_game);
 	easy_btn.addEventListener("click", easy_mode);
@@ -72,6 +46,32 @@ function assign_listeners() {
 			}
 		});
 	}
+}
+//-METHODS----------------------------------------------------------------
+function new_game() {
+	reset_btn.textContent = "New Game";
+	square_visibility(difficulty);
+	colors = generate_colors(difficulty);
+	target_color = pick_target_color();
+	color_name.textContent = target_color;
+	assign_listeners();
+	is_winner = false;
+	h1.style.backgroundColor = "steelblue";
+	message.textContent = "Game started.";
+}
+//------------------------------------------------------------------------
+function easy_mode() {
+	difficulty = 3;
+	new_game();
+	easy_btn.classList.add("selected");
+	hard_btn.classList.remove("selected");
+}
+//------------------------------------------------------------------------
+function hard_mode() {
+	difficulty = 6;
+	new_game();
+	hard_btn.classList.add("selected");
+	easy_btn.classList.remove("selected");
 }
 //------------------------------------------------------------------------
 // Generates a randomized color array to populate the board.
