@@ -1,22 +1,38 @@
-/*  The game logic.
-	Note:
+/*  The game logic:
+
+The RGB Color Game uses a difficulty magic number to determine the number of
+squares to display on the play space.
+
+We also use this number to generate d number of random colors. We assign those
+colors to squares and create listeners for each square that match the square's color
+against the target color.
+
+	Format Requirement:
 	 - Oxford style commas in color arrays are essential.
 	 - Returned color values use the Oxford comma.
 	 - Random color assignment must also observe the Oxford comma styling.
 */
 
-var message = document.querySelector("#message");
-var color_name = document.getElementById("color_name");
-var squares = document.querySelectorAll(".square");
-var is_winner = false;
-var h1 = document.querySelector("h1");
-var colors;
-var target_color;
-var difficulty = 6;
+var message = document.querySelector("#message"); // Correct/Incorrect Feedback
+var color_name = document.getElementById("color_name"); // Display target RGB value.
+var squares = document.querySelectorAll(".square"); // Array of square button listeners.
+var is_winner = false; // End condition, terminates game loop.
+var h1 = document.querySelector("h1"); // Title bar. Color updates on win.
+var colors; // 3-6 randomly generated colors. Determined by square count.
+var target_color; // Randomly selected color from colors.
+var difficulty = 6; // 3-6, depending on user selection.
 
 // Pick a random colors.
 new_game();
 //-EVENT-SETUP------------------------------------------------------------
+/*
+	Called by new_game().
+	Adds listeners for the menu bar.
+	For i square on the field, assigns i color from our randomly generated colors.
+	Also, adds listener wherein each button knows its own color.
+	On click, checks the target color against the square's color.
+	If winner, game over! Otherwise, keep playing.
+*/
 function assign_listeners() {
 	reset_btn.addEventListener("click", new_game);
 	easy_btn.addEventListener("click", easy_mode);
@@ -49,6 +65,12 @@ function assign_listeners() {
 }
 //-METHODS----------------------------------------------------------------
 function new_game() {
+	/*
+		On refresh/new game, updates the play field with d (difficulty) # of squares.
+		Generates random colors based on that difficulty and picks a target/win color.
+		Updates the GUI to display this target color.
+		Assigns listeners to our menu buttons and d squares.
+	*/
 	reset_btn.textContent = "New Game";
 	square_visibility(difficulty);
 	colors = generate_colors(difficulty);
@@ -61,6 +83,7 @@ function new_game() {
 }
 //------------------------------------------------------------------------
 function easy_mode() {
+	// Sets smaller difficulty parameter used to create a new game with only 3 squares.
 	difficulty = 3;
 	new_game();
 	easy_btn.classList.add("selected");
@@ -68,6 +91,7 @@ function easy_mode() {
 }
 //------------------------------------------------------------------------
 function hard_mode() {
+	// Sets a larger difficulty parameter used to create a new game with all 6 squares.
 	difficulty = 6;
 	new_game();
 	hard_btn.classList.add("selected");
@@ -85,7 +109,7 @@ function generate_colors(num) {
 //------------------------------------------------------------------------
 // Generates a single random RGB value. Used to populate the colors array.
 function random_color() {
-	color = [];
+	color = []; // Three item, RGB value array.
 	for(var i = 0; i < 3; ++i) {
 		color[i] = Math.floor(Math.random() * 256);
 	}
