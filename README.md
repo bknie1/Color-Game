@@ -1,6 +1,9 @@
 # bknie1.github.io
 
 ## Summary
+
+[Live Link](https://bknie1.github.io/colorgame.html)
+
 This was my first full, feature complete front-end web project.
 
 Using a randomly generated RGB value, players must determine which square matches the value.
